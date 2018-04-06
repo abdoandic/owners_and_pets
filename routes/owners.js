@@ -4,17 +4,13 @@ const uuid = require('uuid/v1');
 const fs = require('fs');
 const path = require('path');
 
+const ownersController = require('../controllers/owners');
 const ownersPath = path.join(__dirname, '..', 'data', 'owners.json');
 
 // Read all
-router.get('/', (request, response) => {
-  fs.readFile(ownersPath, 'utf8', (error, data) => {
-    if (error) { console.error(error); } // Not again...
-    const owners = JSON.parse(data);
-    response.send(owners);
-  });
-});
+router.get('/', ownersController.readAll);
 
+// Read individual
 router.get('/:id', (request, response) => {});
 
 // Create
