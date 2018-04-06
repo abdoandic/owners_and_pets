@@ -7,8 +7,8 @@ const path = require('path');
 const petsController = require('../controllers/pets');
 const petsPath = path.join(__dirname, '..', 'data', 'pets.json');
 
-// Read all
-router.get('/', petsController.readAll);
+// Read all (pets of a single owner)
+router.get('/owners/:id', petsController.readAll);
 
 // Read individual
 router.get('/:id', (request, response) => {
