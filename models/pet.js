@@ -25,10 +25,11 @@ const readAll = (owner_id) => {
   const pets = JSON.parse(petsJSON);
 
   // Map over the owner's pet_id array
-  const ownerPets = owner.pet_ids.map( pet_id =>
+  const ownerPets = owner.pet_ids.map( pet_id => {
     // Filter the pets array to capture each pet based on the id in the pet_id array
-    pets.filter( pet => pet.id === pet_id )
-  );
+    const filteredPets = pets.filter( pet => pet.id === pet_id );
+    return filteredPets[0];
+  });
   return ownerPets;
 }
 
