@@ -8,6 +8,14 @@ const readAll = () => {
   return JSON.parse(ownersJSON);
 }
 
+const readIndividual = (id) => {
+  const ownersJSON = fs.readFileSync(ownersPath, 'utf8');
+  const owners = JSON.parse(ownersJSON);
+  const filteredOwners = owners.filter( owner => owner.id === id);
+  return filteredOwners[0];
+}
+
 module.exports = {
-  readAll
+  readAll,
+  readIndividual
 }

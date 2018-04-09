@@ -11,7 +11,7 @@ const ownersPath = path.join(__dirname, '..', 'data', 'owners.json');
 router.get('/', ownersController.readAll);
 
 // Read individual
-router.get('/:id', (request, response) => {});
+router.get('/:id', ownersController.readIndividual);
 
 // Create
 router.post('/', (request, response) => {

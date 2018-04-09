@@ -9,7 +9,7 @@ const readAll = (request, response) => {
   response.send(owners);
 }
 
-// Old version
+/* Old version
 // const readAll = (request, response) => {
 //   fs.readFile(ownersPath, 'utf8', (error, data) => {
 //     if (error) { console.error(error); } // Not again...
@@ -17,7 +17,14 @@ const readAll = (request, response) => {
 //     response.send(owners);
 //   });
 // };
+*/
+
+const readIndividual = (request, response) => {
+  const owner = ownerModel.readIndividual(request.params.id);
+  response.send(owner);
+}
 
 module.exports = {
-  readAll
+  readAll,
+  readIndividual
 }
